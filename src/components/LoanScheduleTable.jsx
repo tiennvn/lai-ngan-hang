@@ -4,7 +4,7 @@ import './LoanScheduleTable.css';
 
 const LoanScheduleTable = ({ schedule, monthlyIncome }) => {
   const [showEarlyRepayment, setShowEarlyRepayment] = useState(false);
-  const [showIncome, setShowIncome] = useState(true);
+  const [showIncome, setShowIncome] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(24);
 
