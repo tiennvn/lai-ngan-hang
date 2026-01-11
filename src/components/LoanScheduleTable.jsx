@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { formatCurrency } from '../utils/loanCalculator';
+import { exportToExcel, exportToPDF } from '../utils/exportUtils';
 import './LoanScheduleTable.css';
 
-const LoanScheduleTable = ({ schedule, monthlyIncome }) => {
+const LoanScheduleTable = ({ schedule, monthlyIncome, loanInfo }) => {
   const [showEarlyRepayment, setShowEarlyRepayment] = useState(false);
   const [showIncome, setShowIncome] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -55,6 +56,20 @@ const LoanScheduleTable = ({ schedule, monthlyIncome }) => {
             <option value="36">36 tháng/trang</option>
             <option value="60">60 tháng/trang</option>
           </select>
+          <div className="export-buttons">
+            <button
+              className="btn-export btn-excel"
+              onClick={() => exportToExcel(schedule, loanInfo)}
+            >
+              Excel
+            </button>
+            <button
+              className="btn-export btn-pdf"
+              onClick={() => exportToPDF(schedule, loanInfo)}
+            >
+              PDF
+            </button>
+          </div>
         </div>
       </div>
 

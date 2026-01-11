@@ -43,6 +43,19 @@ const LoanCalculator = () => {
     return calculateSummary(schedule, promotionalRates, floatingRate);
   }, [schedule, promotionalRates, floatingRate]);
 
+  // Loan info for export
+  const loanInfo = useMemo(() => ({
+    loanAmount,
+    termMonths: termYears * 12,
+    gracePeriodYears,
+    floatingRate,
+    monthlyIncome,
+    totalPrincipal: summary.totalPrincipal,
+    totalInterest: summary.totalInterest,
+    totalPayment: summary.totalPayment,
+    avgMonthlyPayment: summary.avgMonthlyPayment,
+  }), [loanAmount, termYears, gracePeriodYears, floatingRate, monthlyIncome, summary]);
+
   return (
     <div className="loan-calculator">
       <header className="calculator-header">
@@ -80,6 +93,7 @@ const LoanCalculator = () => {
           <LoanScheduleTable
             schedule={schedule}
             monthlyIncome={monthlyIncome}
+            loanInfo={loanInfo}
           />
         </main>
       </div>
