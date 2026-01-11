@@ -7,11 +7,11 @@ import './LoanCalculator.css';
 
 const LoanCalculator = () => {
   // Loan parameters state
-  const [loanAmount, setLoanAmount] = useState(2000000000); // 2 billion VND
+  const [loanAmount, setLoanAmount] = useState(2000000000);
   const [termYears, setTermYears] = useState(20);
-  const [gracePeriodYears, setGracePeriodYears] = useState(0); // Grace period - interest only
+  const [gracePeriodYears, setGracePeriodYears] = useState(0);
   const [floatingRate, setFloatingRate] = useState(10.0);
-  const [monthlyIncome, setMonthlyIncome] = useState(60000000); // 60 million VND
+  const [monthlyIncome, setMonthlyIncome] = useState(40000000);
 
   // Promotional rates - can be customized
   const [promotionalRates, setPromotionalRates] = useState([
